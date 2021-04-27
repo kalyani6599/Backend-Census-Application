@@ -54,6 +54,8 @@ public class UserController {
 		}
 	}
 	
+	//Show User
+	//http://localhost:8080/api/user/show-users
 	@GetMapping("/show-users")
 	public ResponseEntity<List<User>> getAllUser(){
 		try {
