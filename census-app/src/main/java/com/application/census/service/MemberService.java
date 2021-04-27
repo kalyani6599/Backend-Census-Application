@@ -17,8 +17,18 @@ public interface MemberService {
 	
 	public Member updateMember(Member member) throws MemberException;
 	
-	public Integer deleteMember(Long memberId) throws MemberException;
+	public Integer deleteMemberById(Long memberId) throws MemberException;
 	
 	//Search Operation---------------
+	
+	public Member searchByAdharCardNo(Long adharCardNo) throws MemberException;
+	public List<Member> searchByGender(String gender) throws MemberException;
+	public List<Member> searchByCity(String city) throws MemberException;
+	public List<Member> searchByDistrict(String district) throws MemberException;
+	public List<Member> searchByPincode(Integer pinCode) throws MemberException;
+	public List<Member> searchByState(String state) throws MemberException;
+	public List<Member> searchBetweenAge(Integer start, Integer end) throws MemberException;
+
+	
 
 }
