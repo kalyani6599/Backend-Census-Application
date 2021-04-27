@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +31,7 @@ public class Member {
 	@Column(name = "motherName")
 	private String motherName;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd" )
 	@Column(name = "dob")
 	private LocalDate dob;
 	
@@ -70,8 +74,12 @@ public class Member {
 	@Column(name = "state")
 	private String state;
 	
-	@ManyToOne
-	@JoinColumn(name="userId")
-	private User user;
+	@Column(name = "userId")
+	private Long userId;
+	
+	
+//	@ManyToOne
+//	@JoinColumn(name="userId")
+//	private User user;
 	
 }

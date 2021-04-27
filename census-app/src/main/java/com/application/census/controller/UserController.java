@@ -48,6 +48,7 @@ public class UserController {
 	public ResponseEntity<User> getUserById(@PathVariable Long userId){
 		try {
 			User u=userService.getUserById(userId);
+			
 			return new ResponseEntity<User>(u,HttpStatus.CREATED);
 		} catch (UserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
