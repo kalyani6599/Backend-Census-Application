@@ -1,13 +1,18 @@
 package com.application.census.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +35,7 @@ public class User {
 	@Column(name = "emailId")
 	private String emailId;
 	
-//	@Size(max=10)
+	//	@Size(max=10)
 	@Column(name="mobileNo", nullable = false)
 	private Long mobile;
 	
@@ -42,6 +47,9 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
+	@OneToMany(mappedBy = "user")
+	@JsonIgnore
+	private List<Member> members;
 	
 }
 
@@ -54,7 +62,5 @@ public class User {
 //	@Column(name="reEnterpassword")
 //	private String ReEnterPassword;
 //	
-//	@OneToMany(mappedBy = "user")
-//	@JsonIgnore
-//	private List<Player> players;
+//	
 //}
