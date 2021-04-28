@@ -65,7 +65,7 @@ public class MemberController {
 		try {
 			Integer status=memberService.deleteMemberById(memberId);
 			if(status==1)
-				return "player "+ memberId +" deleted from database";
+				return "Member "+ memberId +" deleted from database";
 			else
 				return "Unable to delete";
 		} catch (MemberException e) {
